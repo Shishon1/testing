@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Valentine? 💖</title>
+
+  <!-- THIS is crucial for phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+
+    // Simple confetti
+import confetti from 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js';
+confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+
+</script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+   .card {
+  background-image: url("IMG_6003.PNG");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  color: #333;
+}
+
+
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    button {
+      font-size: 1.1rem;
+      padding: 1rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #f1f1f1;
+      color: #333;
+    }
+
+    /* On bigger screens, put buttons side by side */
+    @media (min-width: 600px) {
+      .buttons {
+        flex-direction: row;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Do you want to be my Valentine? 💖</h1>
+
+    <div class="buttons">
+      <button class="yes" onclick="location.href='yes.html'">YES 💕</button>
+      <button class="no" onclick="location.href='no.html'">NO 😐</button>
+    </div>
+  </div>
+
+</body>
+
+
+</html>

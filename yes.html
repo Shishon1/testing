@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Valentine Plans 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffe6eb, #ffd6e0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      width: 100%;
+      max-width: 520px;
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    h1 { font-size: clamp(1.8rem, 6vw, 2.4rem); margin-bottom: 0.5rem; }
+    p { font-size: clamp(1rem, 4vw, 1.2rem); margin-bottom: 1.5rem; opacity: 0.9; }
+
+    textarea {
+      width: 100%;
+      min-height: 140px;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.9rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      background: #ff4d6d;
+      color: white;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>YAYYY 💕</h1>
+    <p>What would you like to do on Valentine’s Day?</p>
+
+    <form id="valentineForm">
+      <textarea
+        name="ideas"
+        placeholder="Declare war on China, Shoot up a School, Commit tax fraud... or what are we thinking? 😘"
+        rows="6"
+        cols="40"
+        required></textarea>
+
+      <button type="submit">Send 💌</button>
+    </form>
+  </div>
+
+  <script>
+
+
+    // Replace YOUR_WEB_APP_URL with your Google Apps Script Web App URL
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw4AoDeCbC8Q_XjOKDfejUpPsuPP0uahGVJUeRV27VBNaazl-khgeMv44sfaVWRlqZbqQ/exec";
+
+    document.getElementById("valentineForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const ideas = this.elements['ideas'].value;
+
+      fetch(WEB_APP_URL, {
+        method: "POST",
+        body: new URLSearchParams({ ideas })
+      })
+      .then(res => alert("Sent! 💖"))
+      .catch(err => alert("Oops… something went wrong 😭"));
+    });
+  </script>
+
+</body>
+</html>
